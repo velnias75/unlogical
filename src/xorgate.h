@@ -3,22 +3,22 @@
  *
  * This file is part of unlogical.
  *
- * DiskFit is free software: you can redistribute it and/or modify
+ * unlogical is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of
  * the License, or (at your option) any later version.
  *
- * DiskFit is distributed in the hope that it will be useful,
+ * unlogical is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with DiskFit.  If not, see <http://www.gnu.org/licenses/>.
+ * along with unlogical.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef XORLATTICE_H
-#define XORLATTICE_H
+#ifndef XORGATE_H
+#define XORGATE_H
 
 namespace Commons {
 
@@ -49,4 +49,4 @@ private:
 
 }
 
-#endif /* XORLATTICE_H */
+#endif /* XORGATE_H */
