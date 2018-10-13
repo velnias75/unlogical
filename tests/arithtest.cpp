@@ -19,114 +19,114 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 
-#include "addertest.h"
+#include "arithtest.h"
 
 #include "halfadder.h"
 #include "number.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION(AdderTest);
 
-template<>
-struct CppUnit::assertion_traits<Number<int8_t, 8> > {
+template<class T, int N>
+struct CppUnit::assertion_traits<Commons::Lab::unlogical::Number<T, N> > {
     
-    static bool equal(const Number<int8_t, 8>& x, const Number<int8_t, 8>& y) {
+    static bool equal(const Commons::Lab::unlogical::Number<T, N>& x, const Commons::Lab::unlogical::Number<T, N>& y) {
         return x == y;
     }
  
-    static std::string toString(const Number<int8_t, 8>& x) {
+    static std::string toString(const Commons::Lab::unlogical::Number<T, N>& x) {
         OStringStream ost;
-        ost << +Number<int8_t, 8>::number_type(x);
+        ost << +typename Commons::Lab::unlogical::Number<T, N>::number_type(x);
         return ost.str();
     }
 };
 
 void AdderTest::testHalfAdder() {
     
-    HalfAdder ha_case1(false, false);
+    Commons::Lab::unlogical::arith::HalfAdder ha_case1(false, false);
     CPPUNIT_ASSERT(!ha_case1().result);
     CPPUNIT_ASSERT(!ha_case1().carry);
     
-    HalfAdder ha_case2(false, true);
+    Commons::Lab::unlogical::arith::HalfAdder ha_case2(false, true);
     CPPUNIT_ASSERT( ha_case2().result);
     CPPUNIT_ASSERT(!ha_case2().carry);
     
-    HalfAdder ha_case3(true, false);
+    Commons::Lab::unlogical::arith::HalfAdder ha_case3(true, false);
     CPPUNIT_ASSERT( ha_case3().result);
     CPPUNIT_ASSERT(!ha_case3().carry);
     
-    HalfAdder ha_case4(true, true);
+    Commons::Lab::unlogical::arith::HalfAdder ha_case4(true, true);
     CPPUNIT_ASSERT(!ha_case4().result);
     CPPUNIT_ASSERT( ha_case4().carry);
 }
 
 void AdderTest::testFullAdder() {
     
-    FullAdder fa_case1_1(false, false, false);
+    Commons::Lab::unlogical::arith::FullAdder fa_case1_1(false, false, false);
     CPPUNIT_ASSERT(!fa_case1_1().result);
     CPPUNIT_ASSERT(!fa_case1_1().carry);
     
-    FullAdder fa_case1_2(false, false, true);
+    Commons::Lab::unlogical::arith::FullAdder fa_case1_2(false, false, true);
     CPPUNIT_ASSERT( fa_case1_2().result);
     CPPUNIT_ASSERT(!fa_case1_2().carry);
     
-    FullAdder fa_case2_1(false, true, false);
+    Commons::Lab::unlogical::arith::FullAdder fa_case2_1(false, true, false);
     CPPUNIT_ASSERT( fa_case2_1().result);
     CPPUNIT_ASSERT(!fa_case2_1().carry);
     
-    FullAdder fa_case2_2(false, true, true);
+    Commons::Lab::unlogical::arith::FullAdder fa_case2_2(false, true, true);
     CPPUNIT_ASSERT(!fa_case2_2().result);
     CPPUNIT_ASSERT( fa_case2_2().carry);
     
-    FullAdder fa_case3_1(true, false, false);
+    Commons::Lab::unlogical::arith::FullAdder fa_case3_1(true, false, false);
     CPPUNIT_ASSERT( fa_case3_1().result);
     CPPUNIT_ASSERT(!fa_case3_1().carry);
     
-    FullAdder fa_case3_2(true, false, true);
+    Commons::Lab::unlogical::arith::FullAdder fa_case3_2(true, false, true);
     CPPUNIT_ASSERT(!fa_case3_2().result);
     CPPUNIT_ASSERT( fa_case3_2().carry);
     
-    FullAdder fa_case4_1(true, true, false);
+    Commons::Lab::unlogical::arith::FullAdder fa_case4_1(true, true, false);
     CPPUNIT_ASSERT(!fa_case4_1().result);
     CPPUNIT_ASSERT( fa_case4_1().carry);
     
-    FullAdder fa_case4_2(true, true, true);
+    Commons::Lab::unlogical::arith::FullAdder fa_case4_2(true, true, true);
     CPPUNIT_ASSERT( fa_case4_2().result);
     CPPUNIT_ASSERT( fa_case4_2().carry);
 }
 
 void AdderTest::testCarryRippleAdder() {
     
-    CarryRippleAdder<uint8_t, 8> cra0(0u, 0u);
+    Commons::Lab::unlogical::arith::CarryRippleAdder<uint8_t, 8> cra0(0u, 0u);
     CPPUNIT_ASSERT_EQUAL((uint8_t)(0u), cra0());
     
-    CarryRippleAdder<uint8_t, 8> cra1(11u, 13u);
+    Commons::Lab::unlogical::arith::CarryRippleAdder<uint8_t, 8> cra1(11u, 13u);
     CPPUNIT_ASSERT_EQUAL((uint8_t)(24u), cra1());
     
-    CarryRippleAdder<uint8_t, 8> cra2(60u, 60u);
+    Commons::Lab::unlogical::arith::CarryRippleAdder<uint8_t, 8> cra2(60u, 60u);
     CPPUNIT_ASSERT_EQUAL((uint8_t)(120u), cra2());
     
-    CarryRippleAdder<uint8_t, 8> cra3(128u, 127u);
+    Commons::Lab::unlogical::arith::CarryRippleAdder<uint8_t, 8> cra3(128u, 127u);
     CPPUNIT_ASSERT_EQUAL((uint8_t)(255u), cra3());
 }
 
 void AdderTest::testSubtractor() {
     
-    Subtractor<int8_t, 8> sub0(0, 0);
+    Commons::Lab::unlogical::arith::Subtractor<int8_t, 8> sub0(0, 0);
     CPPUNIT_ASSERT_EQUAL((int8_t)(0), sub0());
     
-    Subtractor<int8_t, 8> sub1(6, 5);
+    Commons::Lab::unlogical::arith::Subtractor<int8_t, 8> sub1(6, 5);
     CPPUNIT_ASSERT_EQUAL((int8_t)(1), sub1());
     
-    Subtractor<int8_t, 8> sub2(5, 6);
+    Commons::Lab::unlogical::arith::Subtractor<int8_t, 8> sub2(5, 6);
     CPPUNIT_ASSERT_EQUAL((int8_t)(-1), sub2());
     
-    Subtractor<int8_t, 8> sub3(0, 127);
+    Commons::Lab::unlogical::arith::Subtractor<int8_t, 8> sub3(0, 127);
     CPPUNIT_ASSERT_EQUAL((int8_t)(-127), sub3());
 }
 
 void AdderTest::testNumber() {
     
-    typedef Number<int8_t, 8> NUM8;
+    typedef Commons::Lab::unlogical::Number<int8_t, 8> NUM8;
     
     NUM8 n1(0), n2(0);
     CPPUNIT_ASSERT_EQUAL(NUM8(0), (n1 + n2));

@@ -20,6 +20,14 @@
 #ifndef XORLATTICE_H
 #define XORLATTICE_H
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+
+namespace gate {
+    
 class XORGate {
 public:
     XORGate(bool a, bool b) : m_a(a), m_b(b) {}
@@ -32,5 +40,13 @@ private:
     const bool m_a;
     const bool m_b;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* XORLATTICE_H */

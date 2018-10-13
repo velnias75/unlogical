@@ -22,6 +22,14 @@
 
 #include "carryrippleadder.h"
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+
+namespace arith {
+
 template<class T, int N>
 class Subtractor {
 public:
@@ -35,5 +43,13 @@ private:
     const T m_a;
     const T m_b;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* SUBTRACTOR_H */

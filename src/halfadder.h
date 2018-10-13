@@ -20,6 +20,14 @@
 #ifndef HALFADDER_H
 #define HALFADDER_H
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+
+namespace arith {
+    
 class HalfAdder {
 public:
     typedef struct _result {
@@ -37,5 +45,13 @@ private:
     const bool m_a;
     const bool m_b;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* HALFADDER_H */

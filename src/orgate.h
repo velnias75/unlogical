@@ -20,6 +20,14 @@
 #ifndef ORLATTICE_H
 #define ORLATTICE_H
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+
+namespace gate {
+    
 class ORGate {
 public:
     ORGate(bool a, bool b) : m_a(a), m_b(b) {}
@@ -32,5 +40,13 @@ private:
     const bool m_a;
     const bool m_b;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* ORLATTICE_H */

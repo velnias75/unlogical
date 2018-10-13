@@ -22,6 +22,12 @@
 
 #include "subtractor.h"
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+    
 template<class T, int N>
 class Number {
 public:
@@ -39,15 +45,15 @@ public:
     }
     
     Number operator+(const Number& o) const {
-        return CarryRippleAdder<T, N>(m_num, o)();
+        return arith::CarryRippleAdder<T, N>(m_num, o)();
     }
     
     Number operator-(const Number& o) const {
-        return Subtractor<T, N>(m_num, o)();
+        return arith::Subtractor<T, N>(m_num, o)();
     }
     
     Number operator-() const {
-        return CarryRippleAdder<T, N>(~m_num, 1)();
+        return arith::CarryRippleAdder<T, N>(~m_num, 1)();
     }
     
     Number operator*(const Number& o) const {
@@ -58,7 +64,7 @@ public:
         const number_type &times(m_num < 0 ? -m_num : m_num);
         
         for(number_type n = 0; n < times; ++n) {
-            aux = CarryRippleAdder<T, N>(aux, fac)();
+            aux = arith::CarryRippleAdder<T, N>(aux, fac)();
         }
         
         return ((o.m_num < 0) != (m_num < 0)) ? -aux : aux;
@@ -67,5 +73,11 @@ public:
 private:
     number_type m_num;
 };
+
+}
+
+}
+
+}
 
 #endif /* NUMBER_H */

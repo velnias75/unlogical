@@ -22,6 +22,8 @@
 #include "andgate.h"
 #include "xorgate.h"
 
+using namespace Commons::Lab::unlogical::arith;
+
 HalfAdder::RESULT HalfAdder::operator()() const {
-    return HalfAdder::RESULT(XORGate(m_a, m_b)(), ANDGate(m_a, m_b)());
+    return HalfAdder::RESULT(gate::XORGate(m_a, m_b)(), gate::ANDGate(m_a, m_b)());
 }

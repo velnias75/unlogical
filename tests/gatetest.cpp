@@ -28,22 +28,22 @@
 CPPUNIT_TEST_SUITE_REGISTRATION(GateTest);
 
 void GateTest::testORGate() {
-    CPPUNIT_ASSERT(!ORGate(false, false)());
-    CPPUNIT_ASSERT( ORGate(false, true)());
-    CPPUNIT_ASSERT( ORGate(true,  false)());
-    CPPUNIT_ASSERT( ORGate(true,  true)());
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::ORGate(false, false)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::ORGate(false, true)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::ORGate(true,  false)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::ORGate(true,  true)());
 }
 
 void GateTest::testANDGate() {
-    CPPUNIT_ASSERT(!ANDGate(false, false)());
-    CPPUNIT_ASSERT(!ANDGate(false, true)());
-    CPPUNIT_ASSERT(!ANDGate(true,  false)());
-    CPPUNIT_ASSERT( ANDGate(true,  true)());    
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::ANDGate(false, false)());
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::ANDGate(false, true)());
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::ANDGate(true,  false)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::ANDGate(true,  true)());    
 }
 
 void GateTest::testXORGate() {
-    CPPUNIT_ASSERT(!XORGate(false, false)());
-    CPPUNIT_ASSERT( XORGate(false, true)());
-    CPPUNIT_ASSERT( XORGate(true,  false)());
-    CPPUNIT_ASSERT(!XORGate(true,  true)());
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::XORGate(false, false)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::XORGate(false, true)());
+    CPPUNIT_ASSERT( Commons::Lab::unlogical::gate::XORGate(true,  false)());
+    CPPUNIT_ASSERT(!Commons::Lab::unlogical::gate::XORGate(true,  true)());
 }

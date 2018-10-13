@@ -20,6 +20,14 @@
 #ifndef ANDLATTICE_H
 #define ANDLATTICE_H
 
+namespace Commons {
+    
+namespace Lab {
+    
+namespace unlogical {
+    
+namespace gate {
+
 class ANDGate {
 public:
     ANDGate(bool a, bool b) : m_a(a), m_b(b) {}
@@ -32,5 +40,13 @@ private:
     const bool m_a;
     const bool m_b;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* ANDLATTICE_H */

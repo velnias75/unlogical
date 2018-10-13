@@ -20,6 +20,14 @@
 #ifndef FULLADDER_H
 #define FULLADDER_H
 
+namespace Commons {
+
+namespace Lab {
+
+namespace unlogical {
+
+namespace arith {
+    
 class FullAdder {
 public:
     typedef struct _result {
@@ -38,5 +46,13 @@ private:
     const bool m_b;
     const bool m_c;
 };
+
+}
+
+}
+
+}
+
+}
 
 #endif /* FULLADDER_H */

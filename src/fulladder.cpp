@@ -22,11 +22,13 @@
 #include "halfadder.h"
 #include "orgate.h"
 
+using namespace Commons::Lab::unlogical::arith;
+
 FullAdder::RESULT FullAdder::operator()() const {
     
-    HalfAdder har1(m_a, m_b);
-    HalfAdder har2(har1().result, m_c);
-    ORGate  ol(har2().carry, har1().carry);
+    HalfAdder  har1(m_a, m_b);
+    HalfAdder  har2(har1().result, m_c);
+    gate::ORGate ol(har2().carry, har1().carry);
     
     return FullAdder::RESULT(har2().result, ol());
 }
