@@ -40,13 +40,13 @@ public:
     number_type operator()() const {
         
         bool carry = false;
-        number_type r(0u);
+        number_type r(0);
     
         for(int n = 0; n < N; ++n) {
 
-            const FullAdder::RESULT &far(FullAdder((1u & (m_a >> n)), (1u & (m_b >> n)), carry)());
+            const FullAdder::RESULT &far(FullAdder((number_type(1) & (m_a >> n)), (number_type(1) & (m_b >> n)), carry)());
         
-            if(far.result) r |= 1u << n;
+            if(far.result) r |= number_type(1) << n;
         
             carry = far.carry;
         }
@@ -68,3 +68,5 @@ private:
 }
 
 #endif /* CARRYRIPPLEADDER_H */
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

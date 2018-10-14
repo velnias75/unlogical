@@ -32,3 +32,5 @@ FullAdder::RESULT FullAdder::operator() () const {
 
     return FullAdder::RESULT ( har2().result, ol() );
 }
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

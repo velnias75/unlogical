@@ -47,3 +47,5 @@ void GateTest::testXORGate() {
     CPPUNIT_ASSERT ( Commons::Lab::unlogical::gate::XORGate ( true,  false ) () );
     CPPUNIT_ASSERT ( !Commons::Lab::unlogical::gate::XORGate ( true,  true ) () );
 }
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

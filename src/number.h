@@ -20,6 +20,8 @@
 #ifndef NUMBER_H
 #define NUMBER_H
 
+#include <sstream>
+
 #include "subtractor.h"
 
 namespace Commons {
@@ -27,14 +29,16 @@ namespace Commons {
 namespace Lab {
 
 namespace unlogical {
-    
+
 template<class T, int N>
 class Number {
 public:
     
     typedef T number_type;
     
-    Number(const T& n) : m_num(n) {}
+    Number() : m_num() {}
+    
+    Number(const number_type& n) : m_num(n) {}
     
     operator number_type() const {
         return m_num;
@@ -63,11 +67,29 @@ public:
         const number_type &fac(o.m_num < 0 ? (-o).m_num : o.m_num);
         const number_type &times(m_num < 0 ? -m_num : m_num);
         
-        for(number_type n = 0; n < times; ++n) {
-            aux = arith::CarryRippleAdder<T, N>(aux, fac)();
+        if(times > number_type(1)) {
+            
+            for(number_type n = 0; n < times; ++n) {
+                aux = arith::CarryRippleAdder<T, N>(aux, fac)();
+            }
+
+        } else if(times == number_type(1)) {
+            aux = fac;
+        } else {
+            aux = number_type(0);
         }
         
         return ((o.m_num < 0) != (m_num < 0)) ? -aux : aux;
+    }
+    
+    long toLong() const {
+        return static_cast<long>(m_num);
+    }
+    
+    std::string toString() const {
+        std::ostringstream os;
+        os << m_num;
+        return os.str();
     }
     
 private:
@@ -81,3 +103,5 @@ private:
 }
 
 #endif /* NUMBER_H */
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

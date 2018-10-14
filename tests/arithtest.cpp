@@ -26,8 +26,10 @@
 
 CPPUNIT_TEST_SUITE_REGISTRATION ( AdderTest );
 
+CPPUNIT_NS_BEGIN
+
 template<class T, int N>
-struct CppUnit::assertion_traits<Commons::Lab::unlogical::Number<T, N> > {
+struct assertion_traits<Commons::Lab::unlogical::Number<T, N> > {
 
     static bool equal ( const Commons::Lab::unlogical::Number<T, N>& x, const Commons::Lab::unlogical::Number<T, N>& y ) {
         return x == y;
@@ -39,6 +41,8 @@ struct CppUnit::assertion_traits<Commons::Lab::unlogical::Number<T, N> > {
         return ost.str();
     }
 };
+
+CPPUNIT_NS_END
 
 void AdderTest::testHalfAdder() {
 
@@ -146,3 +150,5 @@ void AdderTest::testNumber() {
     CPPUNIT_ASSERT_EQUAL ( NUM8 ( -16 ), ( n5 * n6 ) );
     CPPUNIT_ASSERT_EQUAL ( NUM8 ( -16 ), ( n6 * n5 ) );
 }
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

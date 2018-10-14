@@ -33,3 +33,5 @@ int main ( int, char ** ) {
 
     return wasSucessful ? EXIT_SUCCESS : EXIT_FAILURE;
 }
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

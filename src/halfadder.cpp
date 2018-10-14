@@ -27,4 +27,5 @@ using namespace Commons::Lab::unlogical::arith;
 HalfAdder::RESULT HalfAdder::operator() () const {
     return HalfAdder::RESULT ( gate::XORGate ( m_a, m_b ) (), gate::ANDGate ( m_a, m_b ) () );
 }
-// kate: indent-mode cstyle; indent-width 4; replace-tabs on; 
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;

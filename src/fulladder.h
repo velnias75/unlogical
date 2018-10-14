@@ -56,3 +56,5 @@ private:
 }
 
 #endif /* FULLADDER_H */
+
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;
